@@ -10,7 +10,6 @@
 #import "ScrollMenuViewController.h"
 #import "ScrollMenuConstants.h"
 
-#define kScroll
 @interface ViewController ()
 
 @end
