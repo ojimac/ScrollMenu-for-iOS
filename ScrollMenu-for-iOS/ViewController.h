@@ -10,4 +10,7 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollMenuContainer;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollContentContainer;
+
 @end

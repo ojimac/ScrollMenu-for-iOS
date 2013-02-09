@@ -7,23 +7,32 @@
 //
 
 #import "ViewController.h"
+#import "ScrollMenuViewController.h"
+#import "ScrollMenuConstants.h"
 
+#define kScroll
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    ScrollMenuViewController *scrollMenuViewController = [[ScrollMenuViewController alloc] init];
+    [_scrollMenuContainer addSubview:scrollMenuViewController.view];
+    _scrollMenuContainer.contentSize = CGSizeMake(kMenuWidth * kMenuTotal, kMenuHeight);
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidUnload {
+    [self setScrollMenuContainer:nil];
+    [self setScrollContentContainer:nil];
+    [super viewDidUnload];
 }
 
 @end
