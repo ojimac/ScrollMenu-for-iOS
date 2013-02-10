@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.frame = CGRectMake(0, 0, 320, kMenuWidth * kMenuTotal);
+    self.view.frame = CGRectMake(0, 0, kMenuWidth * kMenuTotal, kMenuHeight);
 
     for (int i = 0; i < kMenuTotal; i++) {
         UILabel *menu = [[UILabel alloc] init];
