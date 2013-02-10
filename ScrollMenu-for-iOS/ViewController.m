@@ -19,9 +19,10 @@
     [super viewDidLoad];
 
     _scrollMenuViewController = [[ScrollMenuViewController alloc] init];
+    _scrollMenuViewController.delegate = self;
+
     _scrollMenuContainer.delegate = _scrollMenuViewController;
     _scrollMenuContainer.contentSize = CGSizeMake(kMenuWidth * kMenuTotal, kMenuHeight);
-
     [_scrollMenuContainer addSubview:_scrollMenuViewController.view];
 }
 
@@ -33,6 +34,13 @@
     [self setScrollMenuContainer:nil];
     [self setScrollContentContainer:nil];
     [super viewDidUnload];
+}
+
+#pragma mark -
+#pragma mark ScrollMenuViewDelegate method
+
+- (void)menuDidTap:(UILabel *)menu tapPoint:(CGPoint)point {
+    [_scrollMenuContainer setContentOffset:point animated:YES];
 }
 
 @end

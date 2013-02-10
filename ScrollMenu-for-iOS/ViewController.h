@@ -11,7 +11,8 @@
 #import "ScrollMenuViewController.h"
 
 @interface ViewController : UIViewController <
-    UIScrollViewDelegate
+    UIScrollViewDelegate,
+    ScrollMenuViewDelegate
 >
 
 @property (nonatomic, strong) ScrollMenuViewController *scrollMenuViewController;

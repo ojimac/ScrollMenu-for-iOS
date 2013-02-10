@@ -53,15 +53,16 @@
     [super viewDidUnload];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-}
-
+#pragma mark -
+#pragma mark delegate method
 
 - (void)tapMenu:(UITapGestureRecognizer *)sender {
-    NSLog(@"sender = %d", sender.view.tag);
+    NSInteger index = sender.view.tag - 1;
+    _movePointX = kMenuWidth * index;
+    NSLog(@"movePointX = %d", _movePointX);
+
+    CGPoint point = CGPointMake(_movePointX, 0);
+    [_delegate menuDidTap:(UILabel *)sender.view tapPoint:point];
 }
 
 @end
