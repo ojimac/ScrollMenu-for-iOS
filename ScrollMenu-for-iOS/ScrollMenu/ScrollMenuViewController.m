@@ -17,33 +17,51 @@
 
 @implementation ScrollMenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // fix y point
-    self.view.frame = self.view.bounds;
+    self.view.frame = CGRectMake(0, 0, 320, kMenuWidth * kMenuTotal);
 
     for (int i = 0; i < kMenuTotal; i++) {
         UILabel *menu = [[UILabel alloc] init];
         menu.frame = CGRectMake(kMenuWidth * i, 0, kMenuWidth, kMenuHeight);
+        menu.text = [NSString stringWithFormat:@"%d", i];
+        menu.textAlignment = NSTextAlignmentCenter;
+        menu.textColor = [UIColor whiteColor];
         menu.backgroundColor = [UIColor grayColor];
         menu.layer.borderColor = [[UIColor blackColor] CGColor];
         menu.layer.borderWidth = 1.0f;
         menu.backgroundColor = [UIColor blueColor];
+
+        menu.tag = i + 1;
+
+        menu.userInteractionEnabled = YES;
+
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(tapMenu:)];
+        [menu addGestureRecognizer:tap];
         [self.view addSubview:menu];
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewDidUnload {
+    [self setView:nil];
+    [super viewDidUnload];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+}
+
+
+- (void)tapMenu:(UITapGestureRecognizer *)sender {
+    NSLog(@"sender = %d", sender.view.tag);
 }
 
 @end

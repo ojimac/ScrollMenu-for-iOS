@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScrollMenuViewController : UIViewController
+@interface ScrollMenuViewController : UIViewController <
+    UIScrollViewDelegate
+>
+
+@property (nonatomic, strong) UIView *view;
 
 @end

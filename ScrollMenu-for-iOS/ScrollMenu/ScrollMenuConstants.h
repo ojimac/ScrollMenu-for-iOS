@@ -8,4 +8,4 @@
 
 #define kMenuTotal  10
 #define kMenuWidth  64.0f
-#define kMenuHeight 48.0f
+#define kMenuHeight 44.0f

@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "ScrollMenuViewController.h"
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollMenuContainer;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollContentContainer;
+@interface ViewController : UIViewController <
+    UIScrollViewDelegate
+>
+
+@property (nonatomic, strong) ScrollMenuViewController *scrollMenuViewController;
+
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollMenuContainer;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollContentContainer;
 
 @end

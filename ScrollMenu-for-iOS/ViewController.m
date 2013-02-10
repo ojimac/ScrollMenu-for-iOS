@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "ScrollMenuViewController.h"
 #import "ScrollMenuConstants.h"
 
 @interface ViewController ()
@@ -19,9 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ScrollMenuViewController *scrollMenuViewController = [[ScrollMenuViewController alloc] init];
-    [_scrollMenuContainer addSubview:scrollMenuViewController.view];
+    _scrollMenuViewController = [[ScrollMenuViewController alloc] init];
+    _scrollMenuContainer.delegate = _scrollMenuViewController;
     _scrollMenuContainer.contentSize = CGSizeMake(kMenuWidth * kMenuTotal, kMenuHeight);
+
+    [_scrollMenuContainer addSubview:_scrollMenuViewController.view];
 }
 
 - (void)didReceiveMemoryWarning {
